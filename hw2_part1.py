@@ -29,32 +29,36 @@ with sqlite3.connect(db_file) as conn:
     
     # Question 1:
     print('Question 1:Which tracks (ids and names) have a lyricist whose name begins with "W"?')
-    
     # implement your solution to q1
-    SELECT track_id, track_name FROM track 
-    JOIN artist ON track.lyricist = artist.artist_id 
-    WHERE artist.artist_name LIKE 'W%'
+    for row in conn.execute("""SELECT track.id, track.track_lyricist FROM track WHERE track.track_lyricist LIKE 'W%'"""):
+        track_id, track_name = row 
+        print(f"Track ID: {track_id}, Track Name: {track_name}")
+    print('---')
 
     
     # Question 2:
     print('Question 2:What are the values that can be taken by the track.track_explicit field?')
-    
+
     # implement your solution to q2
-    
+    for a in conn.execute("SELECT DISTINCT track_explicit FROM track"):
+            print(f"value:{a}")
     print('---')
     
     # Question 3:
     print('Question 3:Which track (id and title) has the most listens?')
     
-    # implement your solution to q3
-    
+    # implement your solution to 3
+    for row in conn.execute("""SELECT track.id, track.track_title FROM track ORDER BY track_listens DESC LIMIT 1"""):
+        track_id, track_name = row  # Unpacking the row into track_id and track_name
+        print(f"Track ID: {track_id}, Track Name: {track_name}")
     print('---')
     
     # Question 4:
     print('Question 4:How many artists have "related projects"?')
     
     # implement your solution to q4
-    
+    for row in conn.execute("""SELECT count(*) FROM artist WHERE artist_related_projects"""):
+        print(f"Number:{row}")
     print('---')
     
     # Question 5:
