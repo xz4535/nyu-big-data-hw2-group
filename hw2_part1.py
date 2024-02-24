@@ -82,11 +82,12 @@ with sqlite3.connect(db_file) as conn:
     print('Question 6:How many tracks are by artists known to be active only within the 1990s?')
     
     # implement your solution to q6 ???
+    t=(1990,1990)
     for row in conn.execute("""SELECT count(*)
                             FROM track
                             INNER JOIN artist ON artist.id = track.artist_id 
-                            WHERE artist_active_year_begin = 1990
-                            OR artist_active_year_end = 1990"""):
+                            WHERE artist_active_year_begin=?
+                            OR artist_active_year_end=?""",t):
         print(f"number of track:{row}")
     print('---???')
     
