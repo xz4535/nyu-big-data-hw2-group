@@ -30,6 +30,14 @@ def run_my_query(conn):
         pass
     
 
+"""
+1.original: (mean:0.062 best:0.012)
+2.not using any composite index: (mean: 0.052 best:0.010)
+3.using composite index for artist.id & artist.artist_name: no faster than 2
+4.using composite index for track.artist_id & track.album_id: (mean: 0.048 best:0.009)
+5.using composite index for both track table and album table: no faster than 4
+6.add index for album.album_listens:no faster than 4
+"""
 
 # We connect to the database using
 with sqlite3.connect(db_file) as conn:
@@ -47,7 +55,12 @@ with sqlite3.connect(db_file) as conn:
 
     # MAKE YOUR MODIFICATIONS TO THE DATABASE HERE
 
-
+    cursor.execute("""CREATE INDEX IF NOT EXISTS idx_art_alb_id
+                   ON track (artist_id, album_id)""")
+    cursor.execute("""CREATE INDEX IF NOT EXISTS idx_art_id
+                   ON artist (id)""")     
+    cursor.execute("""CREATE INDEX IF NOT EXISTS idx_alb_id
+                   ON album (id, album_listens DESC)""")
 
 
     new_time = timeit.repeat('run_my_query(conn)', globals=globals(), number=NUM_ITERATIONS)
@@ -55,3 +68,7 @@ with sqlite3.connect(db_file) as conn:
 
     print(f'Mean time: {sum(new_time)/NUM_ITERATIONS:.3f} [seconds/query]')
     print(f'Best time   : {min(new_time)/NUM_ITERATIONS:.3f} [seconds/query]')
+    #then remove indexes to restore the database
+    cursor.execute("""DROP INDEX idx_art_alb_id""")
+    cursor.execute("""DROP INDEX idx_art_id""")
+    cursor.execute("""DROP INDEX idx_alb_id""")
