@@ -28,10 +28,10 @@ Paste the results of your queries for each question given in the README below:
 
 - Briefly describe how you optimized for this query:
 I have created a composite index "idx_art_alb_id" on the "track" table which includes two columns:"artist_id" and "album_id". This is because both track.artist_id and track.album_id columns are involved in the two INNER JOIN commands in the given query, so it is a good idea to create a composite index for these two columns so that the query can quickly use this composite index to find rows that matches both INNER JOIN conditions. I have also created indexes "idx_art_id" and "idx_alb_id" for the columns artist.id and album.id respectively, because these columns are used in GROUP BY and INNER JOIN commands, and they are being used frequently. As a result, creating the three indexes above is the optimal choise I have found so far.
-- 
+
 - Did you try anything other approaches?  How did they compare to your final answer?
-- 
-- Yes. I have tried five approaches in total.
+
+> Yes. I have tried five approaches in total.
 - 1st approach: I have first created one index for track.artist_id, one index for track.album_id, one index for artist.id, and one index for album.id, and my result was (mean: 0.052 best:0.010), which is slower than my final answer.
 - 2nd approach: I have removed the index for artist.id and created a composite index for artist.id & artist.artist_name instead based on the 1st approach, and this does not improve my result from the 1st approach (their result are the same).
 - 3rd approach: I have used a composite index for track.artist_id & track.album_id and used indexes for artist.id and album.id respectively. The result was (mean:0.048, best:0.009) and this is what I kept as the final optimal answer.
