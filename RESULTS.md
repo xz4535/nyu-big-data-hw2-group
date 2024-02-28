@@ -18,7 +18,8 @@ Paste the results of your queries for each question given in the README below:
 
 4.<br>Number:(2,)
 
-5.
+5.<br>language codes:('de',)
+<br>language codes:('ru',)
 
 6.
 
