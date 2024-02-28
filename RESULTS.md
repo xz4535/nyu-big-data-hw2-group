@@ -33,7 +33,7 @@ I have created a composite index "idx_art_alb_id" on the "track" table which inc
 
 - Did you try anything other approaches?  How did they compare to your final answer?
 <ul>Yes. I have tried five approaches in total.
-1st approach: I have first created one index for track.artist_id, one index for track.album_id, one index for artist.id, and one index for album.id, and my result was (mean: 0.052 best:0.010), which is slower than my final answer.
+<br>1st approach: I have first created one index for track.artist_id, one index for track.album_id, one index for artist.id, and one index for album.id, and my result was (mean: 0.052 best:0.010), which is slower than my final answer.
 2nd approach: I have removed the index for artist.id and created a composite index for artist.id & artist.artist_name instead based on the 1st approach, and this does not improve my result from the 1st approach (their result are the same).
 3rd approach: I have used a composite index for track.artist_id & track.album_id and used indexes for artist.id and album.id respectively. The result was (mean:0.048, best:0.009) and this is what I kept as the final optimal answer.
 4th approach: I have removed the index for album.id and created a composite index for album.id & album.album_listens instead based on the 3rd approach, and its result is the same as the result of the 3rd approach.
