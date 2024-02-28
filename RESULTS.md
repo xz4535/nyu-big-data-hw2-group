@@ -1,6 +1,6 @@
 # Homework 1 results
 
-Your name: 
+Your name: Xiaoyu Zhang, Ziqing Peng, Erchi Zhang
 
 ## Part 1
 Paste the results of your queries for each question given in the README below:
