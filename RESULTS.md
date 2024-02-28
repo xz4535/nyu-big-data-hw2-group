@@ -21,11 +21,13 @@ Paste the results of your queries for each question given in the README below:
 5.<br>language codes:('de',)
 <br>language codes:('ru',)
 
-6.
+6.<br>number of track:(17,)
 
-7.
+7.<br>artist:Ars Sonor, number of album producers:6
+<br>artist:U Can Unlearn Guitar, number of album producers:6
+<br>artist:Disco Missile, number of album producers:5
 
-8.
+8.<br>id:76008, title:JessicaBD, artist name:Cody Goss, difference:3561386
 
 ## Part 2
 
