@@ -5,7 +5,9 @@ Your name:
 ## Part 1
 Paste the results of your queries for each question given in the README below:
 
-1.
+1.<br>Track ID: 22344, Track Name: Wesley Willis
+<br>Track ID: 66084, Track Name: Wayne Myers
+<br>Track ID: 66096, Track Name: Wayne Myers
 
 2.
 
