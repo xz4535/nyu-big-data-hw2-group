@@ -13,7 +13,6 @@ Paste the results of your queries for each question given in the README below:
 <br>value:('Radio-Safe',)
 <br>value:('Radio-Unsafe',)
 <br>value:('Adults-Only',)
-
 3.
 <br>Track ID: 62460, Track title: Siesta
 
