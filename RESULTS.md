@@ -20,18 +20,22 @@ Paste the results of your queries for each question given in the README below:
 <br> We locate track id and track title from table track and we order them by what we find for track listens, at last we only pick the top one answer.
 
 4.<br>Number:(453,)
-<br> Frist we use "DISTINCT id" to find unique id from table artist for 
+<br> Frist we use "DISTINCT id" to find unique id from table artist for related projects, and we demand that related projects to be not null in case those people dont have a related projects
 
 5.<br>language codes:('de',)
 <br>language codes:('ru',)
+<br> we locate and group track language code, set it to be not null from table track and count them we only want 4.
 
-6.<br>number of track:(17,)
+6.<br>number of track:(1697,)
+<br> we count tracks what active from 1990 to 1999 from table track and combine with table artist with let artist id to equal artist id from track. at last we finished counting
 
 7.<br>artist:Ars Sonor, number of album producers:6
 <br>artist:U Can Unlearn Guitar, number of album producers:6
 <br>artist:Disco Missile, number of album producers:5
+<br> First we find artist name form track and count unique album producer with "DISTINCT album.album_producer", and we comnbine table artist with table track with artist id is track.artist id and table album with album id is track.album id, then we group the artist id and order them with the count of distinct album producer with only the top 3.
 
 8.<br>id:76008, title:JessicaBD, artist name:Cody Goss, difference:3561386
+<br> we locate track id, track title, track name and name the result of album listens-track listens as diff, from table track, combine with table artist and table album, then we order the result by diff we named and only print out the top one.
 
 ## Part 2
 
