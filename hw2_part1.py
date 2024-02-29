@@ -86,7 +86,7 @@ with sqlite3.connect(db_file) as conn:
                             FROM track
                             INNER JOIN artist ON artist.id = track.artist_id 
                             WHERE artist_active_year_begin>=1990
-                            OR artist_active_year_end<=1999
+                            AND artist_active_year_end<=1999
                             AND artist_active_year_end != 0
                             AND artist_active_year_end IS NOT NULL
                             AND artist_active_year_begin IS NOT NULL"""):
