@@ -34,7 +34,7 @@ with sqlite3.connect(db_file) as conn:
                             FROM track 
                             WHERE track.track_lyricist LIKE 'W%'"""):
         track_id, track_name = row 
-        print(f"Track ID: {track_id}, Track lyricist: {track_name}")
+        print(f"Track ID: {track_id}, Track name: {track_name}")
     print('---')
 
     
