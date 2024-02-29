@@ -34,7 +34,7 @@ with sqlite3.connect(db_file) as conn:
                             FROM track 
                             WHERE track.track_lyricist LIKE 'W%'"""):
         track_id, track_name = row 
-        print(f"Track ID: {track_id}, Track Name: {track_name}")
+        print(f"Track ID: {track_id}, Track lyricist: {track_name}")
     print('---')
 
     
@@ -62,7 +62,7 @@ with sqlite3.connect(db_file) as conn:
     # implement your solution to q4
     for row in conn.execute("""SELECT count(DISTINCT id) 
                             FROM artist 
-                            WHERE artist_related_projects"""):
+                            WHERE artist_related_projects IS NOT NULL"""):
         print(f"Number:{row}")
     print('---')
     
@@ -70,7 +70,7 @@ with sqlite3.connect(db_file) as conn:
     print('Question 5:Which non-null language codes have exactly 4 tracks?')
     
     # implement your solution to q5
-    for row in conn.execute("""SELECT track_language_code 
+    for row in conn.execute("""SELECT track_language_code
                                 FROM track 
                                 WHERE track_language_code IS NOT NULL 
                                 GROUP BY track_language_code
@@ -82,12 +82,11 @@ with sqlite3.connect(db_file) as conn:
     print('Question 6:How many tracks are by artists known to be active only within the 1990s?')
     
     # implement your solution to q6 ???
-    t=(1990,1990)
     for row in conn.execute("""SELECT count(*)
                             FROM track
                             INNER JOIN artist ON artist.id = track.artist_id 
-                            WHERE artist_active_year_begin=?
-                            OR artist_active_year_end=?""",t):
+                            WHERE artist_active_year_begin>=1990
+                            OR artist_active_year_end<=1999"""):
         print(f"number of track:{row}")
     print('---???')
     
