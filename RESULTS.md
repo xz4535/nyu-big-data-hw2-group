@@ -8,15 +8,19 @@ Paste the results of your queries for each question given in the README below:
 1.<br>Track ID: 22344, Track Name: Wesley Willis
 <br>Track ID: 66084, Track Name: Wayne Myers
 <br>Track ID: 66096, Track Name: Wayne Myers
+<br> We pull track id and track lyricist from track, and in table track we enter queries to find lyricist's name that start with W.
 
 2.<br>value:(None,)
 <br>value:('Radio-Safe',)
 <br>value:('Radio-Unsafe',)
 <br>value:('Adults-Only',)
+<br> We follow the question, then use "DISTINCT track_explicit" to find unique value of this field from table track to find metadata.
 
 3.<br>Track ID: 62460, Track title: Siesta
+<br> We locate track id and track title from table track and we order them by what we find for track listens, at last we only pick the top one answer.
 
-4.<br>Number:(2,)
+4.<br>Number:(453,)
+<br> Frist we use "DISTINCT id" to find unique id from table artist for 
 
 5.<br>language codes:('de',)
 <br>language codes:('ru',)

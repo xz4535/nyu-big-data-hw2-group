@@ -86,11 +86,9 @@ with sqlite3.connect(db_file) as conn:
                             FROM track
                             INNER JOIN artist ON artist.id = track.artist_id 
                             WHERE artist_active_year_begin>=1990
-                            OR artist_active_year_end<=1999
-                            AND artist_active_year_end != 0
-                            AND artist_active_year_end IS NOT NULL"""):
+                            OR artist_active_year_end<=1999"""):
         print(f"number of track:{row}")
-    print('---???')
+    print('---')
     
     # Question 7:
     print('Question 7:Which three artists have worked with the largest number of distinct album producers?')
@@ -116,5 +114,5 @@ with sqlite3.connect(db_file) as conn:
                             LEFT JOIN album ON album.id = track.album_id
                             ORDER BY diff DESC LIMIT 1"""):
         a,b,c,d = row
-        print(f"id:{a}, title:{b}, artist name:{c}, The largest difference:{d}")
+        print(f"id:{a}, title:{b}, artist name:{c}, difference:{d}")
     print('---')
