@@ -8,7 +8,7 @@ Paste the results of your queries for each question given in the README below:
 1.<br>Track ID: 22344, Track name: Outburst
 <br>Track ID: 66084, Track name: Got My Modem Working
 <br>Track ID: 66096, Track name: Mistress Song
-<br> We pull track id and track lyricist from track, and in table track we enter queries to find lyricist's name that start with W.
+<br> We pull track id and track_title (which is equivalent to track's name) from track, and in table track we enter queries to find lyricist's name that start with W.
 
 2.<br>value:(None,)
 <br>value:('Radio-Safe',)
