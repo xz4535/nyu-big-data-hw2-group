@@ -30,7 +30,7 @@ with sqlite3.connect(db_file) as conn:
     # Question 1:
     print('Question 1:Which tracks (ids and names) have a lyricist whose name begins with "W"?')
     # implement your solution to q1
-    for row in conn.execute("""SELECT track.id, track.track_lyricist 
+    for row in conn.execute("""SELECT track.id, track.track_title
                             FROM track 
                             WHERE track.track_lyricist LIKE 'W%'"""):
         track_id, track_name = row 
