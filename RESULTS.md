@@ -26,7 +26,7 @@ Paste the results of your queries for each question given in the README below:
 <br>language codes:('ru',)
 <br> we locate and group track language code, set it to be not null from table track and count them we only want 4.
 
-6.<br>number of track:(1697,)
+6.<br>number of track:(34,)
 <br> we count tracks what active from 1990 to 1999 from table track and combine with table artist with let artist id to equal artist id from track. at last we finished counting
 
 7.<br>artist:Ars Sonor, number of album producers:6
