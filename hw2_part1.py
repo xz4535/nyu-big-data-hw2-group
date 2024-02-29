@@ -81,12 +81,15 @@ with sqlite3.connect(db_file) as conn:
     # Question 6:
     print('Question 6:How many tracks are by artists known to be active only within the 1990s?')
     
-    # implement your solution to q6 ???
+    # implement your solution to q6
     for row in conn.execute("""SELECT count(*)
                             FROM track
                             INNER JOIN artist ON artist.id = track.artist_id 
                             WHERE artist_active_year_begin>=1990
-                            OR artist_active_year_end<=1999"""):
+                            OR artist_active_year_end<=1999
+                            AND artist_active_year_end != 0
+                            AND artist_active_year_end IS NOT NULL
+                            AND artist_active_year_begin IS NOT NULL"""):
         print(f"number of track:{row}")
     print('---')
     
@@ -114,5 +117,5 @@ with sqlite3.connect(db_file) as conn:
                             LEFT JOIN album ON album.id = track.album_id
                             ORDER BY diff DESC LIMIT 1"""):
         a,b,c,d = row
-        print(f"id:{a}, title:{b}, artist name:{c}, difference:{d}")
+        print(f"id:{a}, title:{b}, artist name:{c}, the largest difference:{d}")
     print('---')
